@@ -107,7 +107,7 @@ for u in (sorted(users.values(), key=operator.attrgetter('amount_delegated'), re
         chart = chart + '<tr><td><a href="/@{0}">@{0}</a></td><td>{1}SP</td><td>{2}</td><td>{3}</td><td>{4:.2f}%</td></tr>'.format(u.username, int(u.amount_delegated), u.steem_payout, u.sbd_payout, calculate_APR(u.steem_payout, u.sbd_payout, u.amount_delegated))
 
 # Create post information.
-title = 'Hybridbot Payment Report - {0}'.format(datetime.today().strftime('%m/%d/%Y'))
+title = 'Hybridbot Testing - {0}'.format(datetime.today().strftime('%m/%d/%Y'))
 body = '<center>![](https://cdn.steemitimages.com/DQmZiSNMCC1JG5H3rkLQWXV138yyaX3TWmVfXh37JugtYxD/image.png)</center' \
        '>\n\nWe want to thank each of our delegators for their support of @hybridbot. Delegators receive 95% of ' \
        'all bids that are sent to @hybridbot in accordance with the amount of delegation they have contributed. ' \
@@ -116,25 +116,25 @@ body = '<center>![](https://cdn.steemitimages.com/DQmZiSNMCC1JG5H3rkLQWXV138yyaX
        'the following payments:\n\n<table><thead><tr><th>Delegator</th><th>Amount ' \
        'Delegated</th><th>Steem Payout</th><th>SBD Payout</th><th>APR</th></tr></thead><tbody>{1}' \
        '</table>\n\n<center><hr><h4>Want to promote your posts?</h4>Send at least 0.1 STEEM or SBD to ' \
-       '@dlivepromoter with the post link as the memo and receive an upvote on that post!<hr><h4>Delegate Steem Power ' \
-       'to @dlivepromoter for a daily payout!</h4><a ' \
-       'href="https://v2.steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@dlivepromoter' \
+       '@hybridbot with the post link as the memo and receive an upvote on that post!<hr><h4>Delegate Steem Power ' \
+       'to @hybridbot for a daily payout! Delegate 100 or more Steem Power to unlock automatic upvotes!</h4><a ' \
+       'href="https://v2.steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@hybridbot' \
        '&vesting_shares=25%20SP" target="_new">25 SP</a>, ' \
-       '<a href="https://v2.steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@dlivepromoter' \
+       '<a href="https://v2.steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@hybridbot' \
        '&vesting_shares=50%20SP" target="_new">50 SP</a>, ' \
-       '<a href="https://steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@dlivepromoter' \
+       '<a href="https://steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@hybridbot' \
        '&vesting_shares=100%20SP" target="_new">100 SP</a>, ' \
-       '<a href="https://steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@dlivepromoter' \
+       '<a href="https://steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@hybridbot' \
        '&vesting_shares=250%20SP" target="_new">250 SP</a>, ' \
-       '<a href="https://steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@dlivepromoter' \
+       '<a href="https://steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@hybridbot' \
        '&vesting_shares=500%20SP" target="_new">500 SP</a>, ' \
-       '<a href="https://steembottracker.com/delegation.html?delegatee=dlivepromoter&amount" target="_new">custom ' \
-       'amount</a><br>We pay 95% of bids back to the delegators each day. The remaining 5% is contributed towards ' \
-       '@dlivecommunity to help create a larger community.</center><hr><center><h3>Disclaimer:</h3>@dlivepromoter is ' \
+       '<a href="https://steembottracker.com/delegation.html?delegatee=hybridbot&amount" target="_new">custom ' \
+       'amount</a><br>We pay 95% of bids back to the delegators each day. ' \
+       '</center><hr><center><h3>Disclaimer:</h3> ' \
        'a part of the community project @dlivecommunity. We aim to help streamers navigate their way through @dlive ' \
        'and the overall Steem ecosystem. We are not affiliated ' \
        'with @dlive.</center>'.format(str(calculate_dlivecommunity_payment()), chart)
-tags = ['dlivepromoter', 'dlivecommunity', 'bidbot']
+tags = ['promotion', 'test', 'bots', 'bidbot']
 
 # Post the report so Patrick can get more delegators. :)
-s.post(title=title, body=body, author='dlivepromoter', tags=tags)
+s.post(title=title, body=body, author='hybridbot', tags=tags)
