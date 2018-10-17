@@ -55,8 +55,8 @@ def calculate_APR(steem_payout, sbd_payout, amount_delegated):
 
 
 # Calculates the @hybridbot payment.
-def calculate_dlivecommunity_payment():
-    result = round(float(users['dlivecommunity'].sbd_payout) * float(steem_per_sbd) + float(users['dlivecommunity'].steem_payout), 3)
+def calculate_hybridbot_payment():
+    result = round(float(users['hybridbot'].sbd_payout) * float(steem_per_sbd) + float(users['hybridbot'].steem_payout), 3)
     return result
 
 
@@ -111,29 +111,11 @@ title = 'Hybridbot Testing - {0}'.format(datetime.today().strftime('%m/%d/%Y'))
 body = '<center>![](https://cdn.steemitimages.com/DQmZiSNMCC1JG5H3rkLQWXV138yyaX3TWmVfXh37JugtYxD/image.png)</center' \
        '>\n\nWe want to thank each of our delegators for their support of @hybridbot. Delegators receive 95% of ' \
        'all bids that are sent to @hybridbot in accordance with the amount of delegation they have contributed. ' \
-       'The remaining 5% is sent to @ to help support content creators on @dlive.\n\nToday, we\'ve been' \
+       'The remaining 5% is sent to @prizeportal to help support content creators on @dlive.\n\nToday, we\'ve been' \
        ' able to support @dlivecommunity with a payment of {0} STEEM while our delegators received ' \
        'the following payments:\n\n<table><thead><tr><th>Delegator</th><th>Amount ' \
        'Delegated</th><th>Steem Payout</th><th>SBD Payout</th><th>APR</th></tr></thead><tbody>{1}' \
-       '</table>\n\n<center><hr><h4>Want to promote your posts?</h4>Send at least 0.1 STEEM or SBD to ' \
-       '@hybridbot with the post link as the memo and receive an upvote on that post!<hr><h4>Delegate Steem Power ' \
-       'to @hybridbot for a daily payout! Delegate 100 or more Steem Power to unlock automatic upvotes!</h4><a ' \
-       'href="https://v2.steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@hybridbot' \
-       '&vesting_shares=25%20SP" target="_new">25 SP</a>, ' \
-       '<a href="https://v2.steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@hybridbot' \
-       '&vesting_shares=50%20SP" target="_new">50 SP</a>, ' \
-       '<a href="https://steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@hybridbot' \
-       '&vesting_shares=100%20SP" target="_new">100 SP</a>, ' \
-       '<a href="https://steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@hybridbot' \
-       '&vesting_shares=250%20SP" target="_new">250 SP</a>, ' \
-       '<a href="https://steemconnect.com/sign/delegateVestingShares?delegator=&delegatee=@hybridbot' \
-       '&vesting_shares=500%20SP" target="_new">500 SP</a>, ' \
-       '<a href="https://steembottracker.com/delegation.html?delegatee=hybridbot&amount" target="_new">custom ' \
-       'amount</a><br>We pay 95% of bids back to the delegators each day. ' \
-       '</center><hr><center><h3>Disclaimer:</h3> ' \
-       'a part of the community project @dlivecommunity. We aim to help streamers navigate their way through @dlive ' \
-       'and the overall Steem ecosystem. We are not affiliated ' \
-       'with @dlive.</center>'.format(str(calculate_dlivecommunity_payment()), chart)
+       '</table>\n\n'.format(str(calculate_hybridbot_payment()), chart)
 tags = ['promotion', 'test', 'bots', 'bidbot']
 
 # Post the report so Patrick can get more delegators. :)
